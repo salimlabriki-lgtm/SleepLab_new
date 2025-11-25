@@ -1,0 +1,11 @@
+{
+  "name": "sleeplab-dev",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+
+  // VS Code ouvrira ce dossier comme racine
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+  // L'utilisateur par défaut dans l'image devcontainer
+  "remoteUser": "vscode"
+}
