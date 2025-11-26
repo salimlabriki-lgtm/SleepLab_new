@@ -1,11 +1,29 @@
 {
-  "name": "sleeplab-dev",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
+  "name": "SleepLab",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
 
-  // VS Code ouvrira ce dossier comme racine
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "services": {
+    "postgres": {
+      "image": "postgres:16",
+      "env": {
+        "POSTGRES_USER": "sleeplab",
+        "POSTGRES_PASSWORD": "sleeplab",
+        "POSTGRES_DB": "sleeplab"
+      },
+      "ports": ["5432:5432"],
+      "volumes": ["sleep_lab_pgdata:/var/lib/postgresql/data"]
+    }
+  },
 
-  // L'utilisateur par défaut dans l'image devcontainer
-  "remoteUser": "vscode"
+  "remoteEnv": {
+    "SLEEPLAB_DB_DSN": "postgresql://sleeplab:sleeplab@postgres:5432/sleeplab"
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  }
 }
