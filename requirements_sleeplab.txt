@@ -1,0 +1,6 @@
+pandas
+numpy
+mne
+psycopg2-binary
+jupyter
+ipykernel

@@ -1,0 +1,36 @@
+# Python envs
+.venv/
+venv/
+superset_env/
+
+# Big raw data
+data/raw/
+*.edf
+
+# Dumps / exports
+report/db_dump.sql
+*.dump
+*.bak
+
+# Caches
+__pycache__/
+*.pyc
+
+# --- local envs ---
+.venv/
+venv/
+superset_env/
+
+# --- big raw data / sleep files ---
+data/raw/
+*.edf
+*.csv
+
+# --- dumps / exports ---
+/workspaces/SleepLab_new/report/db_dump.sql
+*.sql
+
+# --- caches ---
+__pycache__/
+*.pyc
+EOF
