@@ -1,24 +1,12 @@
 {
   "name": "SleepLab",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-
-  "services": {
-    "postgres": {
-      "image": "postgres:16",
-      "env": {
-        "POSTGRES_USER": "sleeplab",
-        "POSTGRES_PASSWORD": "sleeplab",
-        "POSTGRES_DB": "sleeplab"
-      },
-      "ports": ["5432:5432"],
-      "volumes": ["sleep_lab_pgdata:/var/lib/postgresql/data"]
-    }
-  },
-
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "runServices": ["postgres"],
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "remoteEnv": {
     "SLEEPLAB_DB_DSN": "postgresql://sleeplab:sleeplab@postgres:5432/sleeplab"
   },
-
   "customizations": {
     "vscode": {
       "settings": {
