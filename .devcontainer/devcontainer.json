@@ -7,11 +7,5 @@
   "remoteEnv": {
     "SLEEPLAB_DB_DSN": "postgresql://sleeplab:sleeplab@postgres:5432/sleeplab"
   },
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python"
-      }
-    }
-  }
+  "postCreateCommand": "set -eux; echo DEVCONTAINER_OK; python -V; echo \"DSN=$SLEEPLAB_DB_DSN\""
 }
