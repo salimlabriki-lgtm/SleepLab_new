@@ -1,11 +1,8 @@
 {
   "name": "SleepLab",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
-  "runServices": ["postgres"],
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "remoteEnv": {
-    "SLEEPLAB_DB_DSN": "postgresql://sleeplab:sleeplab@postgres:5432/sleeplab"
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "postCreateCommand": "set -eux; echo DEVCONTAINER_OK; python -V; echo \"DSN=$SLEEPLAB_DB_DSN\""
+  "postCreateCommand": "set -eux; docker --version; echo DOCKER_OK"
 }
