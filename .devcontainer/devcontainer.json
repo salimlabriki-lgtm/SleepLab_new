@@ -1,17 +1,5 @@
 {
-  "name": "SleepLab",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
-  "runServices": ["postgres"],
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "remoteEnv": {
-    "SLEEPLAB_DB_DSN": "postgresql://sleeplab:sleeplab@postgres:5432/sleeplab"
-  },
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python"
-      }
-    }
-  }
+  "name": "SleepLab-rescue",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "postCreateCommand": "set -eux; echo RESCUE_OK"
 }

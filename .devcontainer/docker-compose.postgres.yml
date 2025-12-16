@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    working_dir: /workspaces/${localWorkspaceFolderBasename}
+    volumes:
+      - ..:/workspaces:cached
+    depends_on:
+      - postgres
+    command: sleep infinity
+
+  postgres:
+    image: postgres:16
+    container_name: sleeplab-postgres
+    environment:
+      POSTGRES_USER: sleeplab
+      POSTGRES_PASSWORD: sleeplab
+      POSTGRES_DB: sleeplab
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../db/data:/var/lib/postgresql/data
+      - ../db/init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
