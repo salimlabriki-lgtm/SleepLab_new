@@ -2,7 +2,9 @@
   "name": "SleepLab",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": false
+    }
   },
-  "postCreateCommand": "set -eux; docker --version; echo DOCKER_OK"
+  "postCreateCommand": "set -eux; docker --version; docker compose version; echo DOCKER_OK"
 }
