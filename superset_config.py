@@ -1,11 +1,22 @@
-import os
+# superset/superset_config.py
+#
+# Objectif:
+# - Forcer Superset à utiliser Postgres (superset-db) comme metadata DB
+#   => persistance des users / roles / dashboards / connections
+# - Activer les flags dont tu as besoin
 
-# Un secret key bien aléatoire (exemple, à changer si tu veux)
-SECRET_KEY = "f0c8a5b4f7a9442cb5f4e7ce9b7f1e90b4c31d7f5c2a0dd4e7a8b3c9f1d2e3a9"
+# IMPORTANT: doit matcher SUPERSET_SECRET_KEY dans docker-compose
+SECRET_KEY = "change-me-please"
+
+# IMPORTANT: metadata DB Superset (sinon Superset retombe sur SQLite et tu perds tout)
+SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://superset:superset@superset-db:5432/superset"
+
+# Optionnel mais propre (évite du bruit)
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+
 FEATURE_FLAGS = {
     "DASHBOARD_FILTERS_EXPERIMENTAL": True,
     "DASHBOARD_NATIVE_FILTERS": True,
-    "DASHBOARD_CROSS_FILTERS": True,      # optionnel
-    # "DASHBOARD_NATIVE_FILTERS_SET": True,  # optionnel 
-    "ENABLE_TEMPLATE_PROCESSING": True,   # paramètres/jinja
+    "DASHBOARD_CROSS_FILTERS": True,
+    "ENABLE_TEMPLATE_PROCESSING": True,
 }
