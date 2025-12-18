@@ -33,4 +33,23 @@ data/raw/
 # --- caches ---
 __pycache__/
 *.pyc
+# Local DB / volumes
+db/data/
+db/init/*.sql
+superset_pgdata/
+**/superset_home/
+**/*.db
+
+# Python env / caches
+.venv/
+superset_env/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
 EOF
