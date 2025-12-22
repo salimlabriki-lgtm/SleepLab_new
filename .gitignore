@@ -51,4 +51,12 @@ __pycache__/
 
 # Logs
 *.log
+db/data/
+superset/.env
+**/superset_home/
+**/*.db
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
 EOF
